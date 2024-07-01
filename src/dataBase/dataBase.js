@@ -1,5 +1,5 @@
 // Simulación de una base de datos
-const db = [
+const dataBase = [
     {
         id: 1,
         name: 'John',
@@ -12,15 +12,10 @@ const db = [
     },
     {
         id: 3,
-        name: 'Doe',
-        age: 30
-    },
-    {
-        id: 4,
         name: 'Smith',
         age: 40
     }
 ]
 
 // Exportar la base de datos
-module.exports = db;
+module.exports = dataBase;

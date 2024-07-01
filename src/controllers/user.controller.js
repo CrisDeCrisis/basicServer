@@ -1,24 +1,24 @@
-const db = require('../dataBase/dataBase.js');
+const dataBase = require('../dataBase/dataBase.js');
 const ctrl = {};
 
 // <------ CRUD ------>
 // Obtener todos los usuarios
 ctrl.readUser = (req, res) => {
-    res.json(db);
+    res.json(dataBase);
 }
 
 // Crear un usuario
 ctrl.createUser = (req, res) => {
     const { name, age } = req.body;
-    const id = db.length + 1;
-    db.push({ id, name, age });
+    const id = dataBase.length + 1;
+    dataBase.push({ id, name, age });
     res.send('Usuario creado correctamente!');
 }
 
 // Obtener un usuario por id
 ctrl.readUserId = (req, res) => {
     const id = req.params.id;
-    const user = db.find(user => user.id == id);
+    const user = dataBase.find(user => user.id == id);
     res.json(user);
 }
 
@@ -26,7 +26,7 @@ ctrl.readUserId = (req, res) => {
 ctrl.updateUser = (req, res) => {
     const { name, age } = req.body;
     const id = req.params.id;
-    db.forEach(user => {
+    dataBase.forEach(user => {
         if (user.id == id) {
             user.name = name;
             user.age = age;
@@ -38,9 +38,9 @@ ctrl.updateUser = (req, res) => {
 // Eliminar un usuario
 ctrl.deleteUser = (req, res) => {
     const id = req.params.id;
-    db.forEach((user, index) => {
+    dataBase.forEach((user, index) => {
         if (user.id == id) {
-            db.splice(index, 1);
+            dataBase.splice(index, 1);
         }
     });
     res.send('Usuario eliminado correctamente!');

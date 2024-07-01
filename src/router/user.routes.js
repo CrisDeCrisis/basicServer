@@ -5,11 +5,11 @@ const { ctrl } = require('../controllers/user.controller');
 const router = Router();
 
 // Rutas
-router.post('/create', ctrl.createUser);
-router.get('/read', ctrl.readUser);
-router.get('/read/:id', ctrl.readUserId);
-router.put('/update', ctrl.updateUser);
-router.delete('/delete', ctrl.deleteUser);
+router.post('/', ctrl.createUser);
+router.get('/', ctrl.readUser);
+router.get('/:id', ctrl.readUserId);
+router.put('/:id', ctrl.updateUser);
+router.delete('/:id', ctrl.deleteUser);
 
 // Exportar el router
 module.exports = router;
